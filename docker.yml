@@ -1,0 +1,15 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports: 
+      - 8080:80
+    environment: 
+      WORDPRESS_DB_PASSWORD: admin123
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
