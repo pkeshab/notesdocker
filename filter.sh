@@ -18,31 +18,3 @@ docker search --filter stars=50 --filter is-official=true apache ( This is the c
 docker search --limit=10 apache # This will give the first 10 apache images with stars in descending order....
 
 
-A
-A
-A
-A
-A
-A
-B
-B
-B
-B
-B
-B
-B
-B
-B
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-
