@@ -1,0 +1,59 @@
+# Reason for using json default logging driver
+
+# Gives the logs as json and uses docker commands for viewing the logs
+
+# checking the logging driver as follows:
+
+docker info | grep Logging
+
+# Now run the httpd container and check the ip address where it is running
+
+docker pull httpd
+docker run -d --name testweb httpd
+
+docker inspect testweb | grep IPAddr # gives the ip address of the running web
+
+# Now stop the container 
+
+docker stop testweb
+docker rm testweb
+
+# Check the rsyslog.conf inside /etc
+Uncomment the udp section on port 514 
+
+Restart the rsyslog
+
+#.................................................................
+
+systemctl start rsyslog
+systemctl status ryslog
+
+# Now set up the syslog logging driver
+
+# go to /etc/docker
+vi daemon.json
+{
+  "log-driver": "syslog",
+  "log-opts": {
+         "syslog-address": "udp://10.0.2.15:514" # This ip is internal of node where container is running:
+          }
+}
+
+# Start the docker
+# Start the rsyslog service
+
+# Create the log file 
+
+echo "" >> /var/log/messages
+
+Now check the messages log you will se the logs of the docker images 
+
+
+
+
+
+ 
+
+
+
+ 

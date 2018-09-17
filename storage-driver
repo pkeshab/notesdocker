@@ -1,0 +1,14 @@
+# notes
+
+# changing storage driver
+
+cd /etc/docker
+vi daemon.json and write the following:
+{
+   "storage-driver":"devicemapper"
+}
+
+Stop and start the docker service
+
+ 
+
